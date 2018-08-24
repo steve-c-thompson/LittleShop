@@ -121,7 +121,28 @@ You can use ActiveRecord's [validations feature](http://guides.rubyonrails.org/a
 
 **Be sure to have a test for each individual validation.**
 
-At the end of this iteration, you should be able to view an index of all merchants, view a page for a single merchant, create a merchant, edit a merchant, and delete a merchant from both the index and the show pages
+At the end of this iteration, you should be able to view an index of all merchants, view a page for a single merchant, create a merchant, edit a merchant, and delete a merchant from both the index and the show pages.
+
+<hr>
+#### Steps
+* `rake db:create` to create the database
+* Create `CreateMerchants` class for db migration by running `rake db:create_migration NAME=create_merchants`
+* add `create_table` to `CreateMerchants`
+* `rake db:migrate`
+* Create `Merchant` class
+* Tests for `Merchant` class validation
+  * `.rspec` file with
+    ```
+    --require spec_helper
+    --color
+    --format=documentation
+    --order=random
+    ```
+  * `spec/models/merchant_spec.rb`
+    ```
+    merchant = Merchant.new({})
+    expect(merchant).to_not be_valid
+    ```
 
 ### Iteration 2 - Seed Merchants
 
