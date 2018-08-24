@@ -1,0 +1,14 @@
+<h2>Merchants</h2>
+<table id="#merchant-list">
+<% @merchants.each do |m| %>
+  <tr>
+    <td><a href="/merchants/<%=m.id%>"><%= m.name %></a></td>
+    <td><a href="/merchants/<%=m.id%>/edit" class="btn btn-primary">Edit</a></td>
+    <td><form method="post" action="/merchants/<%=m.id%>">
+      <input type="hidden" name="_method" value="DELETE"/>
+      <input type="submit" class="btn btn-warning" value="Delete"/>
+    </form>
+    </td>
+  </tr>
+<% end %>
+</table>
